@@ -26,12 +26,12 @@ function App() {
         <ol>
           {(!loggedIn) ? (<li><Link to='/login'>Login</Link></li>) : (<p></p>)}
         
-        <li><Link to='#' onClick={loggedOut}>Logout</Link></li>
+        <li><Link to='/login' onClick={loggedOut}>Logout</Link></li>
         {(loggedIn) ? (<li><Link to='/protected'>Protected page</Link></li>) : (<p></p>)}
         </ol>
 
         <Switch>
-          <PrivateRoute exactpath='/protected' component={Friends} />
+          <PrivateRoute exact path='/protected' component={Friends} />
           <Route path='/login' render={(props) => {
             return <Login {...props} setLoggedIn={setLoggedIn} />
           }} />
